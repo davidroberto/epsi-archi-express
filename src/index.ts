@@ -1,8 +1,8 @@
-const express = require("express");
+import express from "express";
 const app = express();
 
-const productController = require("./product/product.controller");
-const orderController = require("./order/order.controller");
+import productController from "./product/product.controller";
+import orderController from "./order/order.controller";
 
 app.use("/api/products", productController);
 app.use("/api/orders", orderController);
