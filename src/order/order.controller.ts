@@ -1,6 +1,8 @@
 import express from "express";
 const router = express.Router();
 
+import Order from "./domain/order.entity";
+
 router.post("", (request, response) => {
   const customerId = request.body.customerId;
   const products = request.body.products;
