@@ -9,6 +9,8 @@ router.post("", (request, response) => {
 
   const orderCreated = new Order(customerId, products);
 
+  // persister la commande
+
   response.status(201).json(orderCreated);
 });
 
