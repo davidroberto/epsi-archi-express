@@ -1,9 +1,9 @@
 import express from "express";
 const router = express.Router();
 
-import Order from "./domain/order.entity";
+import Order from "../domain/order.entity";
 import OrderRepository from "./order.repository";
-import { CreateOrderUseCase } from "./application/create-order.usecase";
+import { CreateOrderUseCase } from "../application/create-order.usecase";
 
 router.post("", (request, response) => {
   const customerId = request.body.customerId;
