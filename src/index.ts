@@ -1,5 +1,8 @@
 import express from "express";
+import bodyParser from "body-parser";
 const app = express();
+
+app.use(bodyParser.json());
 
 import productController from "./product/product.controller";
 import orderController from "./order/order.controller";
