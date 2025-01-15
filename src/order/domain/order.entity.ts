@@ -1,17 +1,17 @@
 export default class Order {
-  private id: number;
+  id: number;
 
-  private createdAt: Date;
+  createdAt: Date;
 
-  private total: number;
+  total: number;
 
-  private customer: number;
+  customer: number;
 
-  private products: [];
+  products: [];
 
-  private status: string;
+  status: string;
 
-  private paidAt: Date;
+  paidAt: Date;
 
   constructor(customerId: number, products: []) {
     if (!customerId) {

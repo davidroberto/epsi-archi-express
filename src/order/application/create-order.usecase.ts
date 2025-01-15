@@ -1,5 +1,4 @@
 import Order from "../domain/order.entity";
-import OrderRepository from "../infrastructure/order.repository";
 import { OrderContainer } from "../order.container";
 
 export class CreateOrderUseCase {
@@ -11,6 +10,8 @@ export class CreateOrderUseCase {
 
     try {
       const orderPersisted = orderRepository.create(orderCreated);
+
+      console.log(orderPersisted);
       return orderPersisted;
     } catch (error: any) {
       return { error: error.message };

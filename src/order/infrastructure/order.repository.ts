@@ -1,12 +1,14 @@
-import Order from "./domain/order.entity";
+import Order from "../domain/order.entity";
 
 export default class OrderRepository {
   private orders: Order[] = [];
 
   create(order: Order): Order {
-    this.orders.push(order);
+    const orderWithId = { ...order, id: this.orders.length + 1 } as unknown as Order;
 
-    return order;
+    this.orders.push(orderWithId);
+
+    return orderWithId;
   }
 
   findAll(): Order[] {
@@ -25,5 +27,7 @@ export default class OrderRepository {
 
       return orderInList;
     });
+
+    return order;
   }
 }

@@ -14,8 +14,8 @@ export class PayOrderUseCase {
 
     order.pay();
 
-    orderRepository.update(order);
+    const orderUpdated = orderRepository.update(order);
 
-    return order;
+    return orderUpdated;
   }
 }
