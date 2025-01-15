@@ -1,9 +1,10 @@
 import Order from "../domain/order.entity";
-import OrderRepository from "../infrastructure/order.repository";
+import { OrderContainer } from "../order.container";
 
 export class PayOrderUseCase {
   payOrder(orderId: number): Order {
-    const orderRepository = new OrderRepository();
+    const orderContainer = new OrderContainer();
+    const orderRepository = orderContainer.getOrderRepository();
 
     const order = orderRepository.findById(orderId);
 
