@@ -3,8 +3,7 @@ import { OrderContainer } from "../order.container";
 
 export class PayOrderUseCase {
   payOrder(orderId: number): Order {
-    const orderContainer = new OrderContainer();
-    const orderRepository = orderContainer.getOrderRepository();
+    const orderRepository = OrderContainer.getOrderRepository();
 
     const order = orderRepository.findById(orderId);
 

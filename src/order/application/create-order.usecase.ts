@@ -5,8 +5,7 @@ export class CreateOrderUseCase {
   createOrder(customerId: number, products: []): Order | { error: string } {
     const orderCreated = new Order(customerId, products);
 
-    const orderContainer = new OrderContainer();
-    const orderRepository = orderContainer.getOrderRepository();
+    const orderRepository = OrderContainer.getOrderRepository();
 
     try {
       const orderPersisted = orderRepository.create(orderCreated);

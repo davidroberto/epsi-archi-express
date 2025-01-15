@@ -1,12 +1,12 @@
 import OrderRepository from "./infrastructure/order.repository";
 
 export class OrderContainer {
-  private orderRepository: OrderRepository;
+  private static orderRepository: OrderRepository;
 
-  getOrderRepository(): OrderRepository {
-    if (!this.orderRepository) {
-      this.orderRepository = new OrderRepository();
+  static getOrderRepository(): OrderRepository {
+    if (!OrderContainer.orderRepository) {
+      OrderContainer.orderRepository = new OrderRepository();
     }
-    return this.orderRepository;
+    return OrderContainer.orderRepository;
   }
 }
