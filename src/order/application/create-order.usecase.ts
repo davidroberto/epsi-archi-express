@@ -1,5 +1,5 @@
 import Order from "../domain/order.entity";
-import OrderRepository from "../order.repository";
+import OrderRepository from "../infrastructure/order.repository";
 
 export class CreateOrderUseCase {
   createOrder(customerId: number, products: []): Order | { error: string } {

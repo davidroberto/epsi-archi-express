@@ -16,4 +16,14 @@ export default class OrderRepository {
   findById(id: number): Order | undefined {
     return this.orders.find((order) => order.getId() === id);
   }
+
+  update(order: Order): Order {
+    this.orders = this.orders.map((orderInList) => {
+      if (orderInList.getId() === order.getId()) {
+        return order;
+      }
+
+      return orderInList;
+    });
+  }
 }
