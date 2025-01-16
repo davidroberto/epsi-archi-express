@@ -1,19 +1,21 @@
+import { Product } from "../../product/domain/product.entity";
+
 export default class Order {
-  id: number;
+  private id: number;
 
-  createdAt: Date;
+  private createdAt: Date;
 
-  total: number;
+  private total: number;
 
-  customer: number;
+  private customer: number;
 
-  products: [];
+  private products: Product[];
 
-  status: string;
+  private status: string;
 
-  paidAt: Date;
+  private paidAt: Date;
 
-  constructor(customerId: number, products: []) {
+  constructor(customerId: number, products: Product[]) {
     if (!customerId) {
       throw new Error("customerId is required");
     }
@@ -28,7 +30,7 @@ export default class Order {
     this.status = "cart";
 
     this.total = products.reduce((acc, product) => {
-      return acc + 5;
+      return acc + product.price;
     }, 0);
   }
 
@@ -55,5 +57,11 @@ export default class Order {
 
     this.status = "paid";
     this.paidAt = new Date();
+  }
+
+  cancel(): void {
+    if (this.status !== "paid") {
+      throw new Error("You can't cancel an order that is not paid");
+    } else 
   }
 }
