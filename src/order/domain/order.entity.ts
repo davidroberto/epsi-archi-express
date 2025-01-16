@@ -1,28 +1,32 @@
 import { Product } from "../../product/domain/product.entity";
 
 export default class Order {
-  private id: number;
+  id: number;
 
-  private createdAt: Date;
+  createdAt: Date;
 
-  private total: number;
+  total: number;
 
-  private customer: number;
+  customer: number;
 
-  private products: Product[];
+  products: Product[];
 
-  private status: string;
+  status: string;
 
-  private paidAt: Date;
+  paidAt: Date;
+
+  verifymaxProductsRuleIsRespected(products: Product[]): void {
+    if (products.length > 2) {
+      throw new Error("You can't add more than 2 products");
+    }
+  }
 
   constructor(customerId: number, products: Product[]) {
     if (!customerId) {
       throw new Error("customerId is required");
     }
 
-    if (products.length > 2) {
-      throw new Error("You can't add more than 2 products");
-    }
+    this.verifymaxProductsRuleIsRespected(products);
 
     this.createdAt = new Date();
     this.customer = customerId;
@@ -62,6 +66,6 @@ export default class Order {
   cancel(): void {
     if (this.status !== "paid") {
       throw new Error("You can't cancel an order that is not paid");
-    } else 
+    }
   }
 }

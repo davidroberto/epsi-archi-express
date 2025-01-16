@@ -1,12 +1,11 @@
 import Order from "../domain/order.entity";
-import OrderRepository from "../infrastructure/order.repository";
-import { OrderContainer } from "../order.container";
+import OrderRepositoryInterface from "../domain/order.repository.interface";
 
 export class CreateOrderUseCase {
-  private orderRepository: OrderRepository;
+  private orderRepository: OrderRepositoryInterface;
 
-  constructor() {
-    this.orderRepository = OrderContainer.getOrderRepository();
+  constructor(orderRepository: OrderRepositoryInterface) {
+    this.orderRepository = orderRepository;
   }
 
   createOrder(customerId: number, products: []): Order | { error: string } {
