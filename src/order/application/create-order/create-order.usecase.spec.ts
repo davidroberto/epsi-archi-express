@@ -1,6 +1,6 @@
-import Order from "../domain/order.entity";
-import OrderRepositoryInterface from "../domain/order.repository.interface";
-import { CreateOrderUseCase } from "./create-order.usecase";
+import Order from "../../domain/order.entity";
+import OrderRepositoryInterface from "../../domain/order.repository.interface";
+import { CreateOrderUseCase } from "../create-order.usecase";
 
 describe("En tant qu'utilisateur, je souhaite créer une commande", () => {
   it("Quand j'envoie un identifiant client et une liste de produits, alors une commande est créée", () => {

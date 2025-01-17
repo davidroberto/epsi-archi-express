@@ -1,5 +1,5 @@
-import OrderRepository from "../infrastructure/order.repository";
-import OrderContainer from "../order.container";
+import OrderRepository from "../../infrastructure/order.repository";
+import OrderContainer from "../../order.container";
 
 export default class CancelOrderUseCase {
   private orderRepository: OrderRepository;

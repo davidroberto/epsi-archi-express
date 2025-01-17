@@ -3,7 +3,7 @@ const router = express.Router();
 
 import { CreateOrderUseCase } from "../application/create-order.usecase";
 import { PayOrderUseCase } from "../application/pay-order.usecase";
-import CancelOrderUseCase from "../application/cancel-order.usecase";
+import CancelOrderUseCase from "../application/create-order/cancel-order.usecase";
 import OrderContainer from "../order.container";
 
 router.post("", (request, response) => {
